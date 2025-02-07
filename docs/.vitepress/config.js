@@ -12,7 +12,7 @@ export default defineConfig({
   metaChunk: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: '/avatar.webp',
+    logo: '/avatar_transparent.webp',
     nav: [
       { text: '前台 🏠', link: '/' },
       { text: '小笼包 🤤', activeMatch: '/posts/', link: '/posts/tools/' },

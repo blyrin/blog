@@ -17,4 +17,3 @@ hero:
       src: /avatar.webp
       alt: FlapyPan
 ---
-
