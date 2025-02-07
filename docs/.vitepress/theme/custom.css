@@ -20,7 +20,6 @@
   backdrop-filter: blur(1rem);
 }
 
-.VPNav .VPNavBar .VPNavBarTitle img.VPImage.logo,
 .VPContent.is-home .VPHome .VPHero.VPHomeHero img.VPImage {
   border-radius: 100%;
 }
