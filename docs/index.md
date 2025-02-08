@@ -14,6 +14,6 @@ hero:
       text: "为什么不是油煎包 🤓"
       link: /notes/markdown/
   image:
-      src: /avatar.webp
+      src: /avatar_transparent.webp
       alt: FlapyPan
 ---
