@@ -44,11 +44,6 @@ export default defineConfig({
         { text: 'VMware Workstation 下载地址', link: '/notes/vmware-workstation-download/' },
       ],
     },
-    socialLinks: [{ icon: 'github', link: 'https://github.com/FlapyPan/blog' }],
-    editLink: {
-      pattern: 'https://github.com/FlapyPan/blog/edit/main/docs/:path',
-      text: '改一下',
-    },
     footer: {
       message: '😺 萌ICP备20237722号',
     },
