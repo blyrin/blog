@@ -34,6 +34,11 @@ const friends = [
     title: `Jinze 's Blog`,
     avatar: `https://oss.itbaima.cn/hub/38/image-20241122rka3vk1hp.jpeg`,
     url: `https://jinze.me0w00f.tech/`,
+  },
+  {
+    title: `Chains Space`,
+    avatar: `https://avatars.githubusercontent.com/u/57125016`,
+    url: `https://dropthechains.github.io/Chains-Space/`,
   }
 ]
 </script>
