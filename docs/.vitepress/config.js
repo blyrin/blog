@@ -1,4 +1,3 @@
-import legacy from '@vitejs/plugin-legacy'
 import { defineConfig } from 'vitepress'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 import { pagefindPlugin } from 'vitepress-plugin-pagefind'
@@ -103,7 +102,6 @@ export default defineConfig({
       modulePreload: { polyfill: true },
     },
     plugins: [
-      legacy({ targets: ['defaults', 'not IE 11'] }),
       ViteImageOptimizer({
         png: {
           quality: 90,
