@@ -7,6 +7,66 @@ lastUpdated: 2024-07-16
 
 ![封面](cover.png)
 
+## 解决 ping localhost 时为 ipv6 地址
+
+> 请在管理员权限的 cmd 或 powershell 中运行
+
+先查一下前缀优先级：
+
+```powershell
+netsh interface ipv6 show prefixpolicies
+```
+
+```text
+Querying active state...
+
+Precedence  Label  Prefix
+----------  -----  --------------------------------
+        50      0  ::1/128
+        40      1  ::/0
+        35      4  ::ffff:0:0/96
+        30      2  2002::/16
+         5      5  2001::/32
+         3     13  fc00::/7
+         1     11  fec0::/10
+         1     11  3ffe::/16
+         1     3   ::/96
+```
+
+上面的输出中 `::/0` 是 ipv6 的前缀，需要调低优先级，低于 `::ffff:0:0/96` `::/96` 这些 ipv4 的前缀即可。
+
+依次执行：
+
+```powershell
+netsh int ipv6 set prefix ::/96 50 0
+netsh int ipv6 set prefix ::ffff:0:0/96 40 1
+netsh int ipv6 set prefix 2002::/16 35 2
+netsh int ipv6 set prefix 2001::/32 30 3
+netsh int ipv6 set prefix ::1/128 10 4
+netsh int ipv6 set prefix ::/0 5 5
+netsh int ipv6 set prefix fc00::/7 3 13
+netsh int ipv6 set prefix fec0::/10 1 11
+netsh int ipv6 set prefix 3ffe::/16 1 12
+```
+
+再次查询：
+
+```text
+Querying active state...
+
+Precedence  Label  Prefix
+----------  -----  --------------------------------
+        50      0  ::/96
+        40      1  ::ffff:0:0/96
+        35      2  2002::/16
+        30      3  2001::/32
+        10      4  ::1/128
+         5      5  ::/0
+         3     13  fc00::/7
+         1     12  3ffe::/16
+         1     11  fec0::/10
+```
+
 ## 优化 Windows Defender 性能
 
 ### 设置扫描占用的 CPU 比例
