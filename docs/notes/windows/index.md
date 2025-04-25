@@ -9,6 +9,8 @@ lastUpdated: 2024-07-16
 
 ## 解决 ping localhost 时为 ipv6 地址
 
+### 解决方法
+
 > 请在管理员权限的 cmd 或 powershell 中运行
 
 先查一下前缀优先级：
@@ -67,17 +69,23 @@ Precedence  Label  Prefix
          1     11  fec0::/10
 ```
 
+### 前缀含义
+
+> Windows10/11 的访问前缀规则参照 [RFC6724: Default Address Selection for Internet Protocol Version 6 (IPv6)](https://www.rfc-editor.org/rfc/rfc6724#section-2.1) 实现。
+>
+> 可参考 [在 IANA IPv6 Special-Purpose Address Registry](https://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry.xhtml) 查看这些前缀的归属。
+
 ## 优化 Windows Defender 性能
 
 ### 设置扫描占用的 CPU 比例
 
-查看当前的CPU占用比例，默认一般是 50
+查看当前的 CPU 占用比例，默认一般是 50
 
 ```powershell
 Get-MpPreference | select ScanAvgCPULoadFactor
 ```
 
-调整CPU占用比例，例如设置为 20
+调整 CPU 占用比例，例如设置为 20
 
 ```powershell
 Set-MpPreference -ScanAvgCPULoadFactor 20
