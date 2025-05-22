@@ -7,6 +7,26 @@ lastUpdated: 2024-07-16
 
 ![封面](cover.png)
 
+## 解决打开游戏时出现“无法打开此“ms-gamingoverlay"链接”弹窗问题
+
+1. 打开运行（Win+R），并输入 `regedit` 命令，按确定或回车
+
+2. 定位如下位置:
+
+```text
+HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR
+```
+
+找到`AppCaptureEnabled`这个键值，把值改为 0
+
+3. 定位如下位置：
+
+```text
+HKEY_CURRENT_USER\System\GameConfigStore
+```
+
+找到 `GameDVR_Enabled` 这个键值，把值改为 0
+
 ## 解决 ping localhost 时为 ipv6 地址
 
 ### 解决方法
