@@ -7,6 +7,17 @@ lastUpdated: 2024-07-16
 
 ![封面](cover.png)
 
+## 删除 win11 中资源管理器左侧的主文件夹和图库
+
+```regedit
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Classes\CLSID\{e88865ea-0e1c-4e20-9aa6-edcd0212c87c}]
+"System.IsPinnedToNameSpaceTree"=dword:00000000
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{f874310e-b6b7-47dc-bc84-b9e6b38f5903}]
+```
+
 ## 解决打开游戏时出现“无法打开此“ms-gamingoverlay"链接”弹窗问题
 
 1. 打开运行（Win+R），并输入 `regedit` 命令，按确定或回车
