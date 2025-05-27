@@ -65,7 +65,7 @@ set wildmode=longest:list,full
 ### Spring Boot 应用
 
 ```dockerfile
-LABEL maintainer="Demo Docker Image <FlapyPan@gmail.com>"
+LABEL maintainer="Demo Docker Image"
 
 # 构建用镜像
 FROM maven:3.8.6-eclipse-temurin-17-alpine AS build
@@ -142,7 +142,7 @@ blog.example.org {
 }
 
 www.example.org {
-        root * /home/flapypan/blog/dist
+        root * /home/user/blog/dist
         route {
                 # handle_path 去除前缀，handle 保留
                 handle_path /api/* {

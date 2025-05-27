@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "FlapyPan"
-  text: "腾包子的点心铺"
+  name: "blyrin"
+  text: "布铃酱的点心铺"
   tagline: "我大抵是病了，病的还不轻。"
   actions:
     - theme: brand
@@ -15,5 +15,5 @@ hero:
       link: /notes/markdown/
   image:
       src: /avatar_transparent.webp
-      alt: FlapyPan
+      alt: blyrin
 ---

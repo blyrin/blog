@@ -5,8 +5,8 @@ import { pagefindPlugin } from 'vitepress-plugin-pagefind'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: 'zh-Hans',
-  title: 'FlapyPan',
-  description: '腾包子的点心铺',
+  title: 'blyrin | 布铃酱的点心铺',
+  description: '布铃酱的点心铺',
   lastUpdated: true,
   cleanUrls: true,
   metaChunk: true,

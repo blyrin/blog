@@ -136,7 +136,7 @@ Spring 5 的时候，出了一个 `WebClient` 用于对 `RestTemplate` 的响应
 public ResponseEntity<Object> restClient() {
     var restClient = RestClient.create();
     return restClient.get()
-            .uri("https://api.github.com/users/{username}/repos", "FlapyPan")
+            .uri("https://api.github.com/users/{username}/repos", "blyrin")
             .accept(MediaType.APPLICATION_JSON)
             .acceptCharset(StandardCharsets.UTF_8)
             .retrieve()
