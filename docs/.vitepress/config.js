@@ -15,8 +15,8 @@ export default defineConfig({
     logo: '/avatar_transparent.webp',
     nav: [
       { text: '前台 🏠', link: '/' },
-      { text: '小笼包 🤤', activeMatch: '/posts/', link: '/posts/tools/' },
-      { text: '水煎包 🤓', activeMatch: '/notes/', link: '/notes/markdown/' },
+      { text: '文章 🤤', activeMatch: '/posts/', link: '/posts/tools/' },
+      { text: '笔记 🤓', activeMatch: '/notes/', link: '/notes/markdown/' },
       { text: '网址导航 🌏', activeMatch: '/nav/', link: '/nav/' },
       { text: '关于我 🤡', activeMatch: '/about/', link: '/about/' },
     ],

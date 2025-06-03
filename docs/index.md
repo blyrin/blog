@@ -5,13 +5,13 @@ layout: home
 hero:
   name: "blyrin"
   text: "布铃酱的点心铺"
-  tagline: "我大抵是病了，病的还不轻。"
+  tagline: "Never Gonna Give You Up"
   actions:
     - theme: brand
-      text: "我笼里卖的什么包 🤤"
+      text: "文章 🤤"
       link: /posts/tools/
     - theme: alt
-      text: "为什么不是油煎包 🤓"
+      text: "笔记 🤓"
       link: /notes/markdown/
   image:
       src: /avatar_transparent.webp

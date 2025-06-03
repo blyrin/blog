@@ -1,12 +1,14 @@
 :root {
-  --vp-font-family-base: Noto Sans SC, Noto Sans CJK SC, Noto Sans, Noto Color Emoji, ui-sans-serif, system-ui,
-    -apple-system, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  --vp-font-family-mono: Noto Sans Mono CJK SC, Noto Sans Mono, Cascadia Mono, ui-monospace, SFMono-Regular, Menlo,
-    Monaco, Consolas, Liberation Mono, Courier New, monospace, var(--vp-font-family-base);
-  --vp-c-indigo-1: #fb7185;
-  --vp-c-indigo-2: #f43f5e;
-  --vp-c-indigo-3: #e11d48;
-  --vp-c-indigo-soft: rgba(244, 63, 94, 0.16);
+  --vp-font-family-base: Noto Sans SC, Noto Sans CJK SC, Noto Sans, Noto Color Emoji, ui-sans-serif,
+    system-ui, -apple-system, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+    Noto Color Emoji;
+  --vp-font-family-mono: Noto Sans Mono CJK SC, Noto Sans Mono, Cascadia Mono, ui-monospace,
+    SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace,
+    var(--vp-font-family-base);
+  --vp-c-indigo-1:rgb(251, 113, 133);
+  --vp-c-indigo-2:rgb(242, 70, 98);
+  --vp-c-indigo-3:rgb(221, 40, 79);
+  --vp-c-indigo-soft: rgba(244, 63, 94, 0.2);
 }
 
 .algolia [command-dialog-mask] {
@@ -15,6 +17,10 @@
 
 @media (min-width: 960px) {
   .VPHome {
-    margin-top: 56px;
+    margin-top: 48px;
   }
+}
+
+.VPHero.VPHomeHero.has-image .image-container img {
+  filter: drop-shadow(4px 6px 10px var(--vp-c-indigo-soft));
 }
