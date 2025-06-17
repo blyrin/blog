@@ -49,10 +49,6 @@ const friends = [
 
 我大抵是病了，病的还不轻。
 
-## 其他分店
-
-[Alist 分享](https://share.flapypan.cn/)
-
 ## 好朋友们
 
 <div :class="$style.friends">
