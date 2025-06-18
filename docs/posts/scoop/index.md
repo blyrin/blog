@@ -133,7 +133,7 @@ scoop 安装完的安装包不会自动删除，在 scoop 目录下的 cache 文
 你可以手动删除也可以运行：
 
 ```sh
-scoop cache rm \*
+scoop cache rm *
 ```
 
 ### 清除旧版本
