@@ -39,6 +39,11 @@ const friends = [
     title: `Chains Space`,
     avatar: `https://avatars.githubusercontent.com/u/57125016`,
     url: `https://dropthechains.github.io/Chains-Space/`,
+  },
+  {
+    title: `Zwanan's Blog`,
+    avatar: `https://avatars.githubusercontent.com/u/92927055`,
+    url: `https://blog.zwanan.top`,
   }
 ]
 </script>
