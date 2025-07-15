@@ -72,7 +72,6 @@ export default defineConfig({
       transformer: 'lightningcss',
     },
     build: {
-      minify: true,
       cssMinify: 'lightningcss',
       modulePreload: { polyfill: true },
     },
