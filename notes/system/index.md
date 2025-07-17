@@ -114,17 +114,22 @@ CMD ["java","-Xms512M", "-Xmx512M", "-jar", "/app/springboot.jar"]
 
 # 通用配置块
 (COMMON_CONFIG) {
+        # tls 配置
+        #tls /etc/caddy/flapypan.cn.pem /etc/caddy/flapypan.cn.key
         # 压缩支持 (br 需要额外插件)
         encode zstd br gzip
         # HSTS 推荐的时间是 2 年
         header Strict-Transport-Security "max-age=63072000; includeSubDomains"
-        # 去除 Server 响应头
+        # 去除响应头
         header -Server
+        header -Via
+        header -Server
+        header -x-powered-by
         # 禁止部分爬虫的ua
         @norobots {
                 header_regexp User-Agent "^(|360Spider|JikeSpider|Spider|spider|bot|Bot|2345Explorer|curl|wget|webZIP|qihoobot|Baiduspider|Googlebot(-Mobile|-Image)?|Mediapartners-Google|Adsbot-Google|Feedfetcher-Google|Yahoo! Slurp( China)?|YoudaoBot|Sosospider|Sogou( spider| web spider)|MSNBot|ia_archiver|Tomato Bot|NSPlayer|bingbot)?$"
         }
-        redir @norobots http://localhost/ permanent
+        redir @norobots http://localhost/ permanent includeSubDomains"
 }
 
 # 站点配置

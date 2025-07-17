@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 import { pagefindPlugin } from 'vitepress-plugin-pagefind'
+import llmstxt from 'vitepress-plugin-llms'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -19,6 +20,9 @@ export default defineConfig({
       { text: '笔记 🤓', activeMatch: '/notes/', link: '/notes/markdown/' },
       { text: '网址导航 🌏', activeMatch: '/nav/', link: '/nav/' },
       { text: '关于我 🤡', activeMatch: '/about/', link: '/about/' },
+    ],
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/blyrin' },
     ],
     sidebar: {
       '/posts/': [
@@ -112,6 +116,17 @@ export default defineConfig({
           }
           return result.join(' ')
         },
+      }),
+      llmstxt({
+        generateLLMsTxt: true,
+        generateLLMsFullTxt: true,
+        generateLLMFriendlyDocsForEachPage: true,
+        ignoreFiles: [
+          'nav/*',
+          'about/*',
+        ],
+        excludeUnnecessaryFiles: true,
+        excludeIndexPage: true,
       }),
     ],
   },

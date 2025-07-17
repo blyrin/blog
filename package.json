@@ -11,12 +11,13 @@
     "vite-plugin-image-optimizer": "^1.1.9",
     "vite-plugin-vsharp": "^1.9.1",
     "vitepress": "^1.6.3",
+    "vitepress-plugin-llms": "^1.7.1",
     "vitepress-plugin-pagefind": "^0.4.14"
   },
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
   },
   "browserslist": [
     "> 0.5% in CN"
