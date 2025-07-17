@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: "文章 🤤"
-      link: /posts/tools/
+      link: /posts/
     - theme: alt
       text: "笔记 🤓"
-      link: /notes/markdown/
+      link: /notes/
   image:
       src: /avatar_transparent.webp
       alt: blyrin
