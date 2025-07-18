@@ -14,6 +14,6 @@ hero:
       text: "笔记 🤓"
       link: /notes/
   image:
-      src: /avatar_transparent.webp
+      src: /home-logo.webp
       alt: blyrin
 ---

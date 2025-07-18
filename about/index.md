@@ -48,11 +48,6 @@ const friends = [
 ]
 </script>
 
-# 关于我
-
-![封面](/social-card-preview.webp)
-
-我大抵是病了，病的还不轻。
 
 ## 好朋友们
 
@@ -70,17 +65,20 @@ const friends = [
 <style module>
 .friends {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
-  gap: 3rem;
-  padding: 2rem 0;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 2fr));
+  gap: 1rem;
+  padding: 1rem 0;
   .friend {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    text-align: center;
+    word-break: break-word;
+    text-wrap: balance;
     img {
-      width: 6rem;
-      height: 6rem;
+      width: 5rem;
+      height: 5rem;
       border-radius: 50%;
     }
   }

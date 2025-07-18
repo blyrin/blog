@@ -1,8 +1,8 @@
 :root {
   --vp-font-family-base: Noto Sans SC, Noto Sans CJK SC, Noto Sans, Noto Color Emoji, ui-sans-serif, system-ui,
-    -apple-system, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  -apple-system, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --vp-font-family-mono: Noto Sans Mono CJK SC, Noto Sans Mono, Cascadia Mono, ui-monospace, SFMono-Regular, Menlo,
-    Monaco, Consolas, Liberation Mono, Courier New, monospace, var(--vp-font-family-base);
+  Monaco, Consolas, Liberation Mono, Courier New, monospace, var(--vp-font-family-base);
   --vp-c-indigo-1: rgb(142, 140, 216);
   --vp-c-indigo-2: rgb(122, 120, 196);
   --vp-c-indigo-3: rgb(102, 100, 176);
@@ -20,10 +20,8 @@
   background-color: rgb(0 0 0 / 0.5);
 }
 
-@media (min-width: 960px) {
-  .VPHome {
-    margin-top: 48px;
-  }
+img.VPImage.logo {
+  border-radius: 50%;
 }
 
 .VPHero.VPHomeHero .image-container img {
@@ -34,4 +32,11 @@
 
 .dark .VPHero.VPHomeHero .image-container img {
   box-shadow: 0 0 10px var(--vp-c-indigo-soft);
+}
+
+
+@media (min-width: 960px) {
+  .VPHero.VPHomeHero .image-container {
+    margin-top: 32px;
+  }
 }
