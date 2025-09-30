@@ -9,6 +9,7 @@ export const nav = [
 export const links = {
   posts: [
     { text: '工具推荐', link: '/posts/tools/' },
+    { text: 'Claude Code 穷鬼使用方案', link: '/posts/cc-free/' },
     { text: '安装使用 Scoop', link: '/posts/scoop/' },
     { text: 'JS 常见基础面试题', link: '/posts/js-qa/' },
     { text: 'JS 经典之眼见不一定为实', link: '/posts/js-wtf-eq/' },
