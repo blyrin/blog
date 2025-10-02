@@ -1,6 +1,6 @@
 ---
 title: Claude Code 穷鬼方案
-lastUpdated: 2025-09-30
+lastUpdated: 2025-10-02
 ---
 
 分享下我的一套穷人使用 Claude Code 的方案
@@ -15,10 +15,12 @@ lastUpdated: 2025-09-30
 
 ~~说的就是你 trae，模型不差但是配了个稀烂的工具~~
 
-### Claude 和 Claude Code 的区别
+### 打个广告~
 
-- Claude 一般指 Anthropics 公司旗下的模型
-- Claude Code 是 Anthropics 开发的终端编码 Agent
+🚀 速来拼好模，智谱 GLM Coding 超值订阅，邀你一起薅羊毛！Claude Code、Cline 等 10+ 大编程工具无缝支持，“码力”全开，越拼越爽！立即开拼，享限时惊喜价！
+链接：<https://www.bigmodel.cn/claude-code?ic=9SYVHU9A2B>
+
+[![](BigmodelPoster.png)](https://www.bigmodel.cn/claude-code?ic=9SYVHU9A2B)
 
 ## 先决条件
 
@@ -26,10 +28,14 @@ lastUpdated: 2025-09-30
 - 好用的终端软件，Windows 11 推荐直接使用内置的 `终端` 软件
 - 如果只使用国内的平台，无需科学上网
 
+> Claude 一般指 Anthropics 公司旗下的模型
+>
+> Claude Code 是 Anthropics 开发的终端编码 Agent
+
 ## 安装 Claude Code
 
 > Claude Code 官网：<https://claude.com/product/claude-code>
-
+>
 > Claude Code 官方文档：<https://docs.claude.com/en/docs/claude-code/overview>
 
 使用下面指令安装或更新 cc
@@ -210,6 +216,8 @@ openrouter 注册后可用使用一些免费的模型
 - 长上下文：qwen3 max、qwen3 coder (plus)、kimi k2 0905
 - 网络搜索：推荐内置网络搜索的 gemini 2.5 flash，如果没有同后台模型即可
 - 图像：qwen3 vl (plus)、glm 4.5v
+
+> 如果各大平台上线了免费的 glm 4.6 使用，推荐更换为 glm 4.6
 
 ## 如何使用
 
