@@ -1,0 +1,9 @@
+[book]
+authors = ["blyrin"]
+language = "zh-Hans"
+title = "布铃酱的点心铺"
+description = "Never Gonna Give You Up"
+src = "src"
+
+[output.html]
+git-repository-url = "https://github.com/blyrin"
