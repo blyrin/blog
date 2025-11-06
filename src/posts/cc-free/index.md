@@ -1,6 +1,6 @@
 # Claude Code 穷鬼方案
 
-> 文章最后更新日期：2025-10-08
+> 文章最后更新日期：2025-11-06
 
 分享下我的一套穷人使用 Claude Code 的方案
 
@@ -25,9 +25,8 @@
 
 ## 先决条件
 
-- Node.js >= 18
 - 好用的终端软件，Windows 11 推荐直接使用内置的 `终端` 软件
-- 如果只使用国内的平台，无需科学上网
+- 科学上网
 
 > Claude 一般指 Anthropics 公司旗下的模型
 >
@@ -41,22 +40,16 @@
 
 使用下面指令安装或更新 cc
 
+Windows 在 PowerShell 下执行：
+
 ```shell
-npm i -g @anthropic-ai/claude-code@latest
+irm https://claude.ai/install.ps1 | iex
 ```
 
-如果网络情况不好，可以设置 npm 源
-
-永久设置（淘宝源）：
+Linux、WSL、macOS 在命令行执行：
 
 ```shell
-npm config set registry https://registry.npmmirror.com
-```
-
-临时使用：
-
-```shell
-npm --registry=https://registry.npmmirror.com i -g @anthropic-ai/claude-code@latest
+curl -fsSL https://claude.ai/install.sh | bash
 ```
 
 安装好后启动一次看是否正常：
@@ -132,13 +125,7 @@ ccr 会在后台运行，并自动打开浏览器访问 <http://127.0.0.1:3456/u
 推荐添加的模型 ID：
 
 - ZhipuAI/GLM-4.6
-- ZhipuAI/GLM-4.5
-- Qwen/Qwen3-Coder-480B-A35B-Instruct
 - Qwen/Qwen3-VL-235B-A22B-Instruct
-- Qwen/Qwen3-Next-80B-A3B-Instruct
-- Qwen/Qwen3-Coder-30B-A3B-Instruct
-- deepseek-ai/DeepSeek-V3.1
-- deepseek-ai/DeepSeek-R1-0528
 
 #### 心流开放平台
 
@@ -154,12 +141,9 @@ ccr 会在后台运行，并自动打开浏览器访问 <http://127.0.0.1:3456/u
 
 推荐添加的模型 ID：
 
-- qwen3-coder-plus
+- glm-4.6
 - qwen3-vl-plus
-- glm-4.5
 - kimi-k2-0905
-- deepseek-v3.1
-- deepseek-r1
 
 #### OpenRouter
 
@@ -204,18 +188,18 @@ openrouter 注册后可用使用一些免费的模型
 - 思考：思考场景使用的模型，需要模型支持思考
 - 长上下文：对话上下文非常长时会自动切到该模型，推荐使用上下文长的模型
     - 上下文阈值：切换模型的阈值，默认即可
-- 网络搜索：使用模型内置联网搜索功能或调用搜索 MCP 的模型，可以用小参数模型
+- 网络搜索：使用模型内置联网搜索功能，需要模型支持
 - 图像：识别图片的模型，需要模型支持视觉
 
 下列配置是根据我个人使用情况总结出来的（截至文章最后编辑日期），请根据自己项目的实际情况选择
 
 > 不加参数说明默认为最大参数型号
 
-- 默认：glm 4.6、glm 4.5、qwen3 coder (plus)、kimi k2 0905、deepseek v3.1、deepseek r1 0528
-- 后台：qwen3 next 80B、qwen3 coder 30B、grok4 fast、gpt oss 120B、glm 4.5 air
-- 思考：glm 4.6、glm 4.5、deepseek v3.1、deepseek r1 0528
-- 长上下文：qwen3 max、qwen3 coder (plus)、glm 4.6、kimi k2 0905
-- 网络搜索：推荐内置网络搜索的 gemini 2.5 flash，如果没有同后台模型即可
+- 默认：glm 4.6、kimi k2 0905
+- 后台：glm 4.5 air、gpt oss 120B、grok code fast 1
+- 思考：glm 4.6、deepseek r1 0528
+- 长上下文：qwen3 max、qwen3 coder plus、glm 4.6、kimi k2 0905
+- 网络搜索：推荐内置网络搜索的 gemini flash、gemini flash lite
 - 图像：qwen3 vl (plus)、glm 4.5v
 
 ## 如何使用
