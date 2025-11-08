@@ -13,6 +13,7 @@
 <a href="https://jinze.me0w00f.tech/" target="_blank" rel="noopener noreferrer"><img src="https://oss.itbaima.cn/hub/38/image-20241122rka3vk1hp.jpeg" alt="Jinze 's Blog avatar" width="80" height="80" style="border-radius:50%; vertical-align:middle; margin-right:10px"><span>Jinze 's Blog</span></a>
 <a href="https://dropthechains.github.io/Chains-Space/" target="_blank" rel="noopener noreferrer"><img src="https://avatars.githubusercontent.com/u/57125016" alt="Chains Space avatar" width="80" height="80" style="border-radius:50%; vertical-align:middle; margin-right:10px"><span>Chains Space</span></a>
 <a href="https://blog.zwanan.top" target="_blank" rel="noopener noreferrer"><img src="https://avatars.githubusercontent.com/u/92927055" alt="Zwanan's Blog avatar" width="80" height="80" style="border-radius:50%; vertical-align:middle; margin-right:10px"><span>Zwanan's Blog</span></a>
+<a href="https://www.yumeyuka.plus/" target="_blank" rel="noopener noreferrer"><img src="https://avatars.githubusercontent.com/u/125112916" alt="梦璃酱 avatar" width="80" height="80" style="border-radius:50%; vertical-align:middle; margin-right:10px"><span>梦璃魔女的魔法笔记</span></a>
 </div>
 
 ## Genshin
