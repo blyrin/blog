@@ -4,7 +4,7 @@
 
 ## 好朋友们
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 80px">
 <a href="https://lys2021.com/" target="_blank" rel="noopener noreferrer"><img src="https://avatars.githubusercontent.com/u/91442300" alt="HAUE_LYS' Blog avatar" width="80" height="80" style="border-radius:50%; vertical-align:middle; margin-right:10px"><span>HAUE_LYS' Blog</span></a>
 <a href="https://www.qiuyingtyan.top/" target="_blank" rel="noopener noreferrer"><img src="https://oss.itbaima.cn/hub/273/image-20241101kqbxrg9mz.jpeg" alt="秋萤blog-秋秋的点心铺 avatar" width="80" height="80" style="border-radius:50%; vertical-align:middle; margin-right:10px"><span>秋萤blog-秋秋的点心铺</span></a>
 <a href="https://akagiyui.com/" target="_blank" rel="noopener noreferrer"><img src="https://avatars.githubusercontent.com/u/39934721" alt="赤城的部落格 avatar" width="80" height="80" style="border-radius:50%; vertical-align:middle; margin-right:10px"><span>赤城的部落格</span></a>
@@ -15,7 +15,5 @@
 <a href="https://blog.zwanan.top" target="_blank" rel="noopener noreferrer"><img src="https://avatars.githubusercontent.com/u/92927055" alt="Zwanan's Blog avatar" width="80" height="80" style="border-radius:50%; vertical-align:middle; margin-right:10px"><span>Zwanan's Blog</span></a>
 <a href="https://www.yumeyuka.plus/" target="_blank" rel="noopener noreferrer"><img src="https://avatars.githubusercontent.com/u/125112916" alt="梦璃酱 avatar" width="80" height="80" style="border-radius:50%; vertical-align:middle; margin-right:10px"><span>梦璃魔女的魔法笔记</span></a>
 </div>
-
-## Genshin
 
 [![genshin-card](https://ys.himiku.com/64/75432741.png)](https://www.miyoushe.com/ys/accountCenter/postList?id=75432741)
