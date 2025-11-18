@@ -193,7 +193,7 @@ openrouter 注册后可用使用一些免费的模型
 #### 最简配置
 
 - 默认：glm 4.6、qwen3 coder plus、kimi k2 0905
-- 后台：qwen3 coder、glm 4.5 air、gpt oss 120B
+- 后台：glm 4.5 air、qwen3 coder、qwen3、gpt oss 120B
 
 #### 完整配置
 
