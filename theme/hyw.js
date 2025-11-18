@@ -70,9 +70,9 @@
   }
 
   const handleKeyPress = event => {
-    if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA' || event.target.isContentEditable) {
-      return
-    }
+    // if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA' || event.target.isContentEditable) {
+    //   return
+    // }
     const key = event.key.toLowerCase()
     if (!/^[a-z0-9]$/.test(key)) {
       return
