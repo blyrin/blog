@@ -81,7 +81,7 @@ ccr ui
 
 ccr 会在后台运行，并自动打开浏览器访问 <http://127.0.0.1:3456/ui/> 配置界面
 
-下面是我已经配置好的 **（文末会有推荐的配置）**
+下面是我已经配置好的
 
 ![ccr-ui](ccr-ui.png)
 
@@ -115,13 +115,15 @@ ccr 会在后台运行，并自动打开浏览器访问 <http://127.0.0.1:3456/u
 
 推荐添加的模型 ID：
 
-- ZhipuAI/GLM-4.6
-- Qwen/Qwen3-VL-235B-A22B-Instruct
+- ZhipuAI/GLM-4.6（默认）
+- Qwen/Qwen3-VL-235B-A22B-Instruct（视觉）
+- Qwen/Qwen3-Coder-480B-A35B-Instruct（后台）
+- Qwen/Qwen3-235B-A22B-Instruct-2507（后台）
 
 #### 心流开放平台
 
-> 心流开放平台目前每天无限量调用，但并发次数只有 1（同一个账号只能有一个请求在进行，一个人用完全没问题）
->
+> 心流开放平台目前每天无限量调用，但并发次数只有 1（同一个账号只能有一个请求在进行，只要不用作后台模型即可）
+
 官网：<https://platform.iflow.cn>
 
 注册后在 API Key 设置 <https://platform.iflow.cn/profile?tab=apiKey> 添加密钥并复制
@@ -132,9 +134,10 @@ ccr 会在后台运行，并自动打开浏览器访问 <http://127.0.0.1:3456/u
 
 推荐添加的模型 ID：
 
-- glm-4.6
-- qwen3-vl-plus
-- kimi-k2-0905
+- glm-4.6（默认）
+- qwen3-vl-plus（视觉）
+- qwen3-coder-plus（默认）（长上下文）
+- kimi-k2-0905（默认）
 
 #### OpenRouter
 
@@ -148,7 +151,10 @@ openrouter 注册后可用使用一些免费的模型
 
 推荐添加的模型 ID：
 
-- google/gemini-2.0-flash-exp:free
+- google/gemini-2.0-flash-exp:free（网络搜索）
+- z-ai/glm-4.5-air:free（后台）
+- qwen/qwen3-coder:free（后台）
+- openai/gpt-oss-120b:free（后台）
 
 #### 硅基流动
 
@@ -180,14 +186,23 @@ openrouter 注册后可用使用一些免费的模型
 
 下列配置是根据我个人使用情况总结出来的（截至文章最后编辑日期），请根据自己项目的实际情况选择
 
-> 不加参数说明默认为最大参数型号
+> 不加参数说明默认为最大参数型号，模型信息可在 <https://models.dev/> 查询
 
-- 默认：glm 4.6、kimi k2 thinking
-- 后台：glm 4.5 air、gpt oss 120B、grok code fast 1
-- 思考：glm 4.6、kimi k2 thinking
-- 长上下文：qwen3 max、glm 4.6、kimi k2 thinking、qwen3 coder plus
+> 目前并**不推荐使用 DeepSeek 系列**写代码，~~有点蠢~~
+
+#### 最简配置
+
+- 默认：glm 4.6、qwen3 coder plus、kimi k2 0905
+- 后台：qwen3 coder、glm 4.5 air、gpt oss 120B
+
+#### 完整配置
+
+- 默认：glm 4.6、qwen3 coder plus、kimi k2 0905
+- 后台：glm 4.5 air、qwen3 coder、qwen3、gpt oss 120B
+- 思考：glm 4.6
+- 长上下文：qwen3 max、glm 4.6、kimi k2 0905、qwen3 coder plus
 - 网络搜索：推荐内置网络搜索的 gemini flash、gemini flash lite
-- 图像：qwen3 vl (plus)、glm 4.5v
+- 图像（根据需要）：qwen3 vl (plus)、glm 4.5v
 
 ## 如何使用
 
