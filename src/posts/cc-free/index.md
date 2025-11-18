@@ -1,17 +1,8 @@
 # Claude Code 穷鬼方案
 
-> 文章最后更新日期：2025-11-06
+> 文章最后更新日期：2025-11-18
 
 分享下我的一套穷人使用 Claude Code 的方案
-
-### 先打个广告~
-
-不想折腾免费 api 的可以直接使用智谱官方的套餐订阅，最近有优惠活动：
-
-🚀 速来拼好模，智谱 GLM Coding 超值订阅，邀你一起薅羊毛！Claude Code、Cline 等 10+ 大编程工具无缝支持，“码力”全开，越拼越爽！立即开拼，享限时惊喜价！
-链接：<https://www.bigmodel.cn/claude-code?ic=9SYVHU9A2B>
-
-[![](BigmodelPoster.png)](https://www.bigmodel.cn/claude-code?ic=9SYVHU9A2B)
 
 ## 写在前面
 
@@ -157,11 +148,7 @@ openrouter 注册后可用使用一些免费的模型
 
 推荐添加的模型 ID：
 
-- qwen/qwen3-coder:free
-- deepseek/deepseek-chat-v3.1:free
-- moonshotai/kimi-k2:free
-- openai/gpt-oss-120b:free
-- z-ai/glm-4.5-air:free
+- google/gemini-2.0-flash-exp:free
 
 #### 硅基流动
 
@@ -195,10 +182,10 @@ openrouter 注册后可用使用一些免费的模型
 
 > 不加参数说明默认为最大参数型号
 
-- 默认：glm 4.6、kimi k2 0905
+- 默认：glm 4.6、kimi k2 thinking
 - 后台：glm 4.5 air、gpt oss 120B、grok code fast 1
-- 思考：glm 4.6、deepseek r1 0528
-- 长上下文：qwen3 max、qwen3 coder plus、glm 4.6、kimi k2 0905
+- 思考：glm 4.6、kimi k2 thinking
+- 长上下文：qwen3 max、glm 4.6、kimi k2 thinking、qwen3 coder plus
 - 网络搜索：推荐内置网络搜索的 gemini flash、gemini flash lite
 - 图像：qwen3 vl (plus)、glm 4.5v
 
