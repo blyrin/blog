@@ -1,5 +1,7 @@
 # Claude Code 穷鬼方案
 
+![cover](cover.webp)
+
 > 文章最后更新日期：2025-11-18
 
 分享下我的一套穷人使用 Claude Code 的方案
