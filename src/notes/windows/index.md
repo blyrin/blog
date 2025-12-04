@@ -185,35 +185,20 @@ LsaCfgFlags = 0
 进入管理员 CMD
 
 ```cmd
+bcdedit /set vsmlaunchtype off
 mountvol X: /s
 copy %WINDIR%\System32\SecConfig.efi X:\EFI\Microsoft\Boot\SecConfig.efi /Y
 bcdedit /create {0cb3b571-2f2e-4343-a879-d86a476d7215} /d "DebugTool" /application osloader
 bcdedit /set {0cb3b571-2f2e-4343-a879-d86a476d7215} path "\EFI\Microsoft\Boot\SecConfig.efi"
 bcdedit /set {bootmgr} bootsequence {0cb3b571-2f2e-4343-a879-d86a476d7215}
-bcdedit /set {0cb3b571-2f2e-4343-a879-d86a476d7215} loadoptions DISABLE-LSA-ISO
+bcdedit /set {0cb3b571-2f2e-4343-a879-d86a476d7215} loadoptions DISABLE-LSA-ISO,DISABLE-VBS
 bcdedit /set {0cb3b571-2f2e-4343-a879-d86a476d7215} device partition=X:
 mountvol X: /d
 ```
 
-### 禁用基于虚拟化的安全性
-
-删除下列注册表项
-
-```text
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard
-
-- EnableVirtualizationBasedSecurity
-- RequirePlatformSecurityFeatures
-```
-
-进入管理员 CMD
-
-```text
-bcdedit /set {0cb3b571-2f2e-4343-a879-d86a476d7215} loadoptions DISABLE-LSA-ISO,DISABLE-VBS
-bcdedit /set vsmlaunchtype off
-```
-
 **重启电脑后会提示关闭 Credential Guard，按 `Win + F3` 确认**
+
+> 参考：<https://learn.microsoft.com/zh-cn/windows/security/identity-protection/credential-guard/configure?tabs=reg>
 
 ## 安装开启 Hyper-V
 
