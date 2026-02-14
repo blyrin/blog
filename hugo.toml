@@ -66,13 +66,9 @@ name = "标签"
 url = "/tags/"
 weight = 4
 [[menu.main]]
-name = "时间线"
-url = "/archives/"
+name = "AI每日精选博客"
+url = "https://blyrin.github.io/daily-ai-digest/"
 weight = 5
-[[menu.main]]
-name = "友链"
-url = "/friends/"
-weight = 6
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
