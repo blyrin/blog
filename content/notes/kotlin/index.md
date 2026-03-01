@@ -2,7 +2,7 @@
 title: "Kotlin 笔记"
 date: 2023-09-27
 description: "Kotlin 语言学习笔记"
-tags: ["Kotlin", "笔记"]
+tags: ["Kotlin", "后端", "Spring"]
 cover:
   image: "kotlin.png"
 ---

@@ -2,7 +2,7 @@
 title: "Markdown 语法速查"
 date: 2024-01-07
 description: "Markdown 语法速查手册"
-tags: ["Markdown", "笔记"]
+tags: ["Markdown", "工具"]
 cover:
   image: "cover.png"
 ---

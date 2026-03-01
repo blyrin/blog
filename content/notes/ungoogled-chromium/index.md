@@ -2,7 +2,7 @@
 title: "ungoogled chromium 安装配置"
 date: 2024-03-03
 description: "ungoogled chromium 浏览器安装配置"
-tags: ["浏览器", "隐私", "笔记"]
+tags: ["浏览器", "隐私", "工具"]
 cover:
   image: "ungoogled.webp"
 ---

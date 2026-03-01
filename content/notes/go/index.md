@@ -2,7 +2,7 @@
 title: "Go 语言笔记"
 date: 2023-08-02
 description: "Go 语言学习笔记"
-tags: ["Go", "笔记"]
+tags: ["Go", "后端"]
 cover:
   image: "go.png"
 ---

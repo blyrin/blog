@@ -2,7 +2,7 @@
 title: "Windows 使用笔记"
 date: 2025-02-10
 description: "Windows 系统使用技巧笔记"
-tags: ["Windows", "笔记"]
+tags: ["Windows", "运维"]
 cover:
   image: "cover.png"
 ---
@@ -276,56 +276,126 @@ pause
 ## PowerShell 配置
 
 ```powershell
-$Env:POWERSHELL_UPDATECHECK="LTS"
+$Env:POWERSHELL_UPDATECHECK = "LTS"
 
-$OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
+$MaximumHistoryCount = 500
 
-Import-Module PSReadLine
-Set-PSReadLineOption -Colors @{
-    Command                = [ConsoleColor]::Blue
-    Comment                = [ConsoleColor]::DarkGray
-    ContinuationPrompt     = [ConsoleColor]::White
-    Default                = [ConsoleColor]::White
-    Emphasis               = [ConsoleColor]::Cyan
-    Error                  = [ConsoleColor]::Red
-    InlinePrediction       = [ConsoleColor]::DarkGray
-    Keyword                = [ConsoleColor]::DarkBlue
-    ListPrediction         = [ConsoleColor]::DarkGray
-    ListPredictionSelected = "$([char]0x1b)[30;47m"
-    Member                 = [ConsoleColor]::Magenta
-    Number                 = [ConsoleColor]::Blue
-    Operator               = [ConsoleColor]::White
-    Parameter              = [ConsoleColor]::White
-    String                 = [ConsoleColor]::DarkGreen
-    'Type'                 = [ConsoleColor]::Green
-    Variable               = [ConsoleColor]::Yellow
+if (-not (Get-Module -Name PSReadLine)) {
+	Import-Module PSReadLine
 }
-Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
 Set-PSReadlineKeyHandler -Key "Ctrl+d" -Function ViExit
 Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 
-function ListDirectory {
-    (Get-ChildItem).Name
-    Write-Host("")
-}
-Set-Alias -Name ls -Value ListDirectory -Option AllScope
-Set-Alias -Name ll -Value Get-ChildItem -Option AllScope
-
-function OpenCurrentFolder {
-    param
-    (
-        $Path = '.'
-    )
-    Invoke-Item $Path
-}
-Set-Alias -Name open -Value OpenCurrentFolder -Option AllScope
+function Get-DirectoryNameOnly { (Get-ChildItem).Name }
+function Invoke-Path { param($Path = '.'); Invoke-Item $Path }
+Set-Alias -Name ls -Value Get-DirectoryNameOnly -Option AllScope -Force
+Set-Alias -Name ll -Value Get-ChildItem -Option AllScope -Force
+Set-Alias -Name open -Value Invoke-Path -Option AllScope
 
 Set-Alias -Name pn -Value pnpm -Option AllScope
 
+function wis {
+	winget search @args
+}
+function wii {
+	winget install @args
+}
+
+function setproxy {
+    $proxy = 'http://127.0.0.1:7890'
+    $Env:HTTP_PROXY = $proxy
+    $Env:HTTPS_PROXY = $proxy
+    $Env:ALL_PROXY = 'socks5://127.0.0.1:7890'
+    $Env:NO_PROXY = '127.0.0.1,localhost'
+    Write-Host "代理已启用: $proxy" -ForegroundColor Green
+}
+
+function unsetproxy {
+    $Env:HTTP_PROXY = $null
+    $Env:HTTPS_PROXY = $null
+    $Env:ALL_PROXY = $null
+    $Env:NO_PROXY = $null
+    Write-Host "代理已关闭" -ForegroundColor Yellow
+}
+
+#setproxy
+
+function openhistory {
+    $historyPath = Join-Path -Path $Env:APPDATA -ChildPath "Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt"
+    if (Test-Path $historyPath) {
+        notepad $historyPath
+    } else {
+        Write-Warning "History file not found at $historyPath"
+    }
+}
+
+function cca {
+	claude --settings $HOME/.claude/settings.a.json @args
+}
+Set-Alias -Name cc -Value claude -Option AllScope
+
+function cx {
+  codex --yolo @args
+}
+
 Invoke-Expression (&starship init powershell)
 
+```
+
+## PowerShell 删除到回收站
+
+替换默认的 `rm` 命令，将文件删除到回收站而非永久删除：
+
+```powershell
+function Remove-ItemToRecycleBin {
+    [CmdletBinding(DefaultParameterSetName='Path')]
+    param(
+        [Parameter(Mandatory=$true, ValueFromPipeline=$true, ValueFromPipelineByPropertyName=$true, Position=0)]
+        [Alias('FullName')]
+        [string[]]$Path,
+
+        [Alias('r')]
+        [switch]$Recurse,
+
+        [Alias('f')]
+        [switch]$Force
+    )
+
+    begin {
+        $shell = New-Object -ComObject Shell.Application
+    }
+
+    process {
+        foreach ($itemPath in $Path) {
+            $resolvedPaths = Resolve-Path -Path $itemPath -ErrorAction SilentlyContinue
+
+            if (-not $resolvedPaths) { continue }
+
+            foreach ($rPath in $resolvedPaths) {
+                $fullPath = $rPath.ProviderPath
+                if (Test-Path $fullPath -PathType Container) {
+                    if (-not $Recurse -and (Get-ChildItem $fullPath -ErrorAction SilentlyContinue)) {
+                        Write-Error "项 $fullPath 包含项，若要删除，请指定 -Recurse 参数。"
+                        continue
+                    }
+                }
+                $parentDir = Split-Path $fullPath
+                $itemName = Split-Path $fullPath -Leaf
+                $folder = $shell.NameSpace($parentDir)
+                $item = $folder.ParseName($itemName)
+
+                if ($item) {
+                    $item.InvokeVerb("delete")
+                }
+            }
+        }
+    }
+}
+if (Get-Alias rm -ErrorAction SilentlyContinue) {
+    Remove-Item alias:rm -Force
+}
+Set-Alias -Name rm -Value Remove-ItemToRecycleBin
 ```

@@ -2,7 +2,7 @@
 title: "Starship 安装配置"
 date: 2023-08-15
 description: "Starship 终端美化工具配置"
-tags: ["Starship", "终端", "笔记"]
+tags: ["Starship", "终端", "工具"]
 cover:
   image: "starship.png"
 ---
