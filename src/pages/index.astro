@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import homeLogo from "../assets/home-logo.webp";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("posts"))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const recentPosts = posts.slice(0, 5);
+---
+
+<BaseLayout title="首页" description="布铃酱的点心铺 - 个人博客与知识库">
+  <section aria-label="站点简介">
+    <Image src={homeLogo} alt="布铃酱" width={120} height={120} loading="eager" />
+    <h1>布铃酱的点心铺</h1>
+  </section>
+  <section aria-label="最新文章">
+    <h2>最新文章</h2>
+    {
+      recentPosts.map((post) => (
+        <article>
+          <h3>
+            <a href={`/posts/${post.id}`}>{post.data.title}</a>
+          </h3>
+          <p>
+            {post.data.description}
+            &nbsp;
+            <time datetime={post.data.date.toLocaleDateString()}>{post.data.date.toLocaleDateString()}</time>
+            {post.data.tags?.map((tag: string) => (
+              <>
+              &nbsp;
+              <a href={`/tags/${encodeURIComponent(tag)}`}>#{tag}</a>
+              </>
+            ))}
+          </p>
+        </article>
+      ))
+    }
+    <p><a href="/posts">查看全部 {posts.length} 篇文章</a></p>
+  </section>
+</BaseLayout>

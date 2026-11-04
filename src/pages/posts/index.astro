@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("posts"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout title="文章" description="所有文章">
+  <h1>文章</h1>
+  <p>共 {posts.length} 篇</p>
+  {
+    posts.map((post) => (
+      <article>
+        <h2>
+          <a href={`/posts/${post.id}`}>{post.data.title}</a>
+        </h2>
+        <p>
+          {post.data.description}
+          &nbsp;
+          <time datetime={post.data.date.toLocaleDateString()}>{post.data.date.toLocaleDateString()}</time>
+          {post.data.tags?.map((tag: string) => (
+            <>
+            &nbsp;
+            <a href={`/tags/${encodeURIComponent(tag)}`}>#{tag}</a>
+            </>))}
+        </p>
+      </article>
+    ))
+  }
+</BaseLayout>

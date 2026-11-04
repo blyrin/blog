@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+const notes = (await getCollection("notes"))
+  .filter((note) => !note.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout title="笔记" description="所有笔记">
+  <h1>笔记</h1>
+  <p>共 {notes.length} 篇</p>
+  {
+    notes.map((note) => (
+      <article>
+        <h2>
+          <a href={`/notes/${note.id}`}>{note.data.title}</a>
+        </h2>
+        <p>
+          {note.data.description}
+          &nbsp;
+          <time datetime={note.data.date.toLocaleDateString()}>{note.data.date.toLocaleDateString()}</time>
+          {note.data.tags?.map((tag: string) => (
+            <>
+            &nbsp;
+            <a href={`/tags/${encodeURIComponent(tag)}`}>#{tag}</a>
+            </>))}
+        </p>
+      </article>
+    ))
+  }
+</BaseLayout>

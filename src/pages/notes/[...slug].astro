@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const notes = (await getCollection("notes")).filter((note) => !note.data.draft);
+
+  return notes.map((note) => ({
+    params: { slug: note.id },
+    props: { note },
+  }));
+}
+
+const { note } = Astro.props;
+const { Content } = await render(note);
+---
+
+<BaseLayout
+  title={note.data.title}
+  description={note.data.description}
+  image={typeof note.data.cover?.image === "string" ? note.data.cover.image : undefined}
+>
+  <article>
+    <header>
+      <h1>{note.data.title}</h1>
+      <p>
+        <time datetime={note.data.date.toLocaleDateString()}>{note.data.date.toLocaleDateString()}</time>
+        {note.data.tags?.map((tag: string) => (
+          <>
+          &nbsp;
+          <a href={`/tags/${encodeURIComponent(tag)}`}>#{tag}</a>
+          </>
+        ))}
+      </p>
+      {
+        note.data.cover?.image && (
+          <p>
+            {typeof note.data.cover.image === "string" ? (
+              <Image
+                src={note.data.cover.image}
+                alt={note.data.title}
+                width={960}
+                inferSize
+              />
+            ) : (
+              <Image src={note.data.cover.image} alt={note.data.title} width={960} />
+            )}
+          </p>
+        )
+      }
+    </header>
+
+    <Content />
+  </article>
+</BaseLayout>

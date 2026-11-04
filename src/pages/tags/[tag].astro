@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = (await getCollection("posts"))
+    .filter((p) => !p.data.draft)
+    .map((p) => ({ ...p, collectionType: "posts" as const }));
+
+  const notes = (await getCollection("notes"))
+    .filter((n) => !n.data.draft)
+    .map((n) => ({ ...n, collectionType: "notes" as const }));
+
+  const all = [...posts, ...notes];
+  const tagMap: { [tag: string]: typeof all } = {};
+
+  all.forEach((entry) => {
+    entry.data.tags?.forEach((t: string) => {
+      if (!tagMap[t]) tagMap[t] = [];
+      tagMap[t].push(entry);
+    });
+  });
+
+  return Object.keys(tagMap).map((tag) => {
+    const sortedEntries = tagMap[tag].sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+    return {
+      params: { tag },
+      props: {
+        tag,
+        entries: sortedEntries,
+      },
+    };
+  });
+}
+
+const { tag, entries } = Astro.props;
+---
+
+<BaseLayout title={`标签：${tag}`} description={`包含标签 ${tag} 的文章和笔记`}>
+  <h1>#{tag}</h1>
+  <p>共 {entries.length} 篇</p>
+  <ul>
+    {
+      entries.map((entry) => (
+        <li>
+          <span>{entry.collectionType === "posts" ? "文章" : "笔记"}</span>
+          &nbsp;
+          <a href={`/${entry.collectionType}/${entry.id}`}>{entry.data.title}</a>
+          &nbsp;
+          <time datetime={entry.data.date.toLocaleDateString()}>{entry.data.date.toLocaleDateString()}</time>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

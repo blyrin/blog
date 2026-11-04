@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts");
+const notes = await getCollection("notes");
+
+const allEntries = [...posts, ...notes].filter((entry) => !entry.data.draft);
+
+const tagCounts: { [tag: string]: number } = {};
+allEntries.forEach((entry) => {
+  entry.data.tags?.forEach((tag: string) => {
+    tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+  });
+});
+
+const tags = Object.keys(tagCounts).sort((a, b) => tagCounts[b] - tagCounts[a]);
+---
+
+<BaseLayout title="标签" description="全站标签汇总">
+  <h1>标签</h1>
+  <ul>
+    {
+      tags.map((tag) => (
+        <li>
+          <a href={`/tags/${encodeURIComponent(tag)}`}>#{tag}</a>（{tagCounts[tag]}）
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
